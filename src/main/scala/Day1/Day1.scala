@@ -17,9 +17,7 @@ object Day1 {
             case List(a, b) => a < b
             case _ => false
         }
-        println(
-            func + " (Correct: 1791)"
-        )
+        println(func + " (Correct: 1791)")
     }
 
     private def part2(xs: List[Int]): Unit = {
@@ -29,5 +27,4 @@ object Day1 {
         }
         println(func + " (Correct: 1822)")
     }
-
 }
