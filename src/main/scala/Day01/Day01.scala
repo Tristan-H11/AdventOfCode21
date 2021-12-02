@@ -4,7 +4,7 @@ import scala.io.Source
 
 object Day01 {
     def main(args: Array[String]): Unit = {
-        val source = Source.fromFile("src/main/scala/Day1/input")
+        val source = Source.fromFile("src/main/scala/Day01/input")
         val input = source.getLines().toList.map(_.toInt)
         source.close()
 
