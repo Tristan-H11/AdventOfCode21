@@ -1,8 +1,8 @@
-package Day3
+package Day03
 
 import scala.io.Source
 
-object Day3 {
+object Day03 {
 
     def main(args: Array[String]): Unit = {
         val source = Source.fromFile("src/main/scala/Day3/input")
