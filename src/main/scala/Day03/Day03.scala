@@ -49,7 +49,6 @@ object Day03 {
                     result2 = filteredList2.head
             }
         }
-        println(result1.mkString + " " + result2.mkString)
         Integer.valueOf(result1.mkString, 2) * Integer.valueOf(result2.mkString, 2)
     }
 
