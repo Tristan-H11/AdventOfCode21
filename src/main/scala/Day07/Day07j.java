@@ -1,10 +1,12 @@
 package Day07;
 
 import java.io.IOException;
+import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Day07j {
@@ -13,8 +15,8 @@ public class Day07j {
         var values = (ArrayList<Integer>) getInput();
         Collections.sort(values);
 
-        System.out.println(Part1(values));
-        System.out.println(Part2(values));
+        System.out.println(Part1(values) + " (correct: 356958)");
+        System.out.println(Part2(values) + " (correct: 105461913)");
     }
 
     private static int Part1(List<Integer> crabPositions) {
@@ -23,17 +25,14 @@ public class Day07j {
     }
 
     private static int Part2(ArrayList<Integer> crabPositions) {
-        final double average = (int) Math.round(
-                crabPositions.stream()
-                .mapToInt(i -> i)
-                .average()
-                .orElse(0.0)
-        );
+        int minPos = Collections.min(crabPositions);
+        int maxPos = Collections.max(crabPositions);
 
-        return crabPositions.stream().mapToInt(crab -> {
-            var dist = (int) Math.abs(crab -average);
-            return dist * (dist+1) / 2;
-        }).sum();
+        return IntStream.range(minPos, maxPos + 1)
+                .parallel()
+                .map(pos -> cost2(pos, crabPositions)
+                ).min()
+                .orElse(0);
     }
 
     private static List<Integer> getInput() {
@@ -48,5 +47,15 @@ public class Day07j {
             System.out.println("File not found! " + e.getMessage());
         }
         return new ArrayList<>();
+    }
+
+
+    private static int cost2(int pos, ArrayList<Integer> crabs) {
+        int fuel = 0;
+        for (int crab : crabs) {
+            int moves = Math.abs(pos - crab);
+            fuel += (moves * (moves + 1)) / 2;
+        }
+        return fuel;
     }
 }
