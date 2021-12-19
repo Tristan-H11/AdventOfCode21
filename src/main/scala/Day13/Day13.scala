@@ -23,7 +23,8 @@ object Day13 {
 
         }
         println(part1(points, folds) + " (correct: 675)")
-        println(part2(points, folds) + " (correct: HZKHFEJZ)")
+        part2(points, folds)
+        println(" (correct: HZKHFEJZ)")
     }
 
     def part1(points: Set[(Int, Int)], folds: List[(Char, Int)]): Int = {

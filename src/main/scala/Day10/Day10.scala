@@ -23,8 +23,8 @@ object Day10 {
         val input: Array[String] = source.getLines().toArray
         source.close()
 
-        println(part1(input) + " (correct: 266301)")
-        println(part2(input) + " (correct: 3404870164)")
+        println(part1(input).toString + " (correct: 266301)")
+        println(part2(input).toString + " (correct: 3404870164)")
     }
 
     def part1(lines: Array[String]): BigInt = {
