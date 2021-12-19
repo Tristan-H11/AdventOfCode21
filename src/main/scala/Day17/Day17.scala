@@ -9,8 +9,8 @@ import scala.util.Using
 object Day17 {
 
     private val targetArea = "^target area: x=(\\d+)..(\\d+), y=(-?\\d+)..(-?\\d+)".r
-    private var xRange = Range.inclusive(0,0)
-    private var yRange = Range.inclusive(0,0)
+    private var xRange = Range.inclusive(0, 0)
+    private var yRange = Range.inclusive(0, 0)
     //I have no clue, how to initialize those ranges lol
 
     def main(args: Array[String]): Unit = {
@@ -24,17 +24,11 @@ object Day17 {
     }
 
     def part1: Int = {
-        val maxHeights = {
-            for {
-                xVelocity <- 0 to 1000
-                yVelocity <- yRange.min to 1000
-            } yield maxHeight(xVelocity, yVelocity)
-        }
-        maxHeights.max
+        yRange.min * (yRange.min + 1) / 2
     }
 
     def part2: Int = {
-        val maxHeights = {
+        val maxHeights: Seq[Int] = {
             for {
                 xVelocity <- 0 to 1000
                 yVelocity <- yRange.min to 1000
