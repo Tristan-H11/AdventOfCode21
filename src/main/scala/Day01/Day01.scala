@@ -8,23 +8,21 @@ object Day01 {
         val input = source.getLines().toList.map(_.toInt)
         source.close()
 
-        part1(input)
-        part2(input)
+        println(part1(input) + " (Correct: 1791)")
+        println(part2(input) + " (Correct: 1822)")
     }
 
-    private def part1(xs: List[Int]): Unit = {
-        val func = xs.sliding(2).count {
+    def part1(xs: List[Int]): Int = {
+        xs.sliding(2).count {
             case List(a, b) => a < b
             case _ => false
         }
-        println(func + " (Correct: 1791)")
     }
 
-    private def part2(xs: List[Int]): Unit = {
-        val func: Int = xs.sliding(3).map(_.sum).toList.sliding(2).count {
+    def part2(xs: List[Int]): Int = {
+        xs.sliding(3).map(_.sum).toList.sliding(2).count {
             case List(a, b) => a < b
             case _ => false
         }
-        println(func + " (Correct: 1822)")
     }
 }
