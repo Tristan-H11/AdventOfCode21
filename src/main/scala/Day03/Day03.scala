@@ -18,7 +18,6 @@ object Day03 {
     }
 
     def part2(xs: Array[Array[String]]): Int = {
-
         var filteredList1 = xs.clone()
         var result1: Array[String] = Array("")
         for (i <- xs.head.indices) {
